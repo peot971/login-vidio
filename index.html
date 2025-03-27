@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login dengan Validasi</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #3498db, #8e44ad);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            width: 300px;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            margin: 0 0 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid #333;
+            background: transparent;
+            outline: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus ~ label,
+        .input-box input:valid ~ label {
+            top: -20px;
+            left: 0;
+            color: #3498db;
+            font-size: 12px;
+        }
+
+        .input-box label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            color: #aaa;
+        }
+
+        .login-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #2980b9;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-box">
+                <input type="text" id="username" required>
+                <label>Username</label>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" required>
+                <label>Password</label>
+            </div>
+            <button type="button" class="login-btn" onclick="validateLogin()">Login</button>
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        // Validasi Login
+        function validateLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Contoh validasi sederhana
+            if (username === "admin" && password === "1234") {
+                window.location.href = "vidio.html"; // Redirect ke halaman berikutnya
+            } else {
+                const message = document.getElementById("message");
+                message.innerText = "Username atau Password salah!";
+            }
+        }
+    </script>
+</body>
+</html>
